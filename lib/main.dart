@@ -1,27 +1,35 @@
 import 'package:flutter/material.dart';
 
+
+import './Question.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return MyAppState();
+    return _MyAppState();
   }
 }
-class MyAppState extends State<MyApp>{ 
+class _MyAppState extends State<MyApp>{  // the underscore is to make the state private :)) 
   var questionIndex = 0; 
 
-  void answerQuestion (int index) { 
+  var questions = ['what\'s your favorite car', 'what\'s your favorite food'];
+  void _answerQuestion (int index) { 
     setState(() {
-      
-    questionIndex = questionIndex + 1 ;
+      if(questions.length <= questionIndex +1  ){ 
+        questionIndex -= 1;
+      }else{ 
+        questionIndex++;
+
+      }
     });
+    print(questionIndex);
       print('question answered! $index' );
   }
   @override
   Widget build(BuildContext context) {
-    var questions = ['what\'s your favorite car', 'what\'s your favorite food'];
   
     return MaterialApp(
       home: Scaffold(
@@ -29,18 +37,18 @@ class MyAppState extends State<MyApp>{
           title: Text('My first app '),
         ),
         body: Column(children: [
-          Text(questions[questionIndex],),
+          Question(questions[questionIndex],),
           Row(children: [ ElevatedButton(
             child: Text('Answer 1'),
-            onPressed: ()=>answerQuestion(1),
+            onPressed: ()=>_answerQuestion(1),
           ),
           ElevatedButton(
             child: Text('Answer 2'),
-            onPressed: ()=>answerQuestion(2),
+            onPressed: ()=>_answerQuestion(2),
           ),
           ElevatedButton(
             child: Text('Answer 3'),
-            onPressed: ()=>answerQuestion(3),
+            onPressed: ()=>_answerQuestion(3),
           ),]
           ),
         
