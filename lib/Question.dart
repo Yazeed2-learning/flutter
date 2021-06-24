@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 
 class Question extends StatelessWidget {
-  String questionText; 
+  final String
+      questionText; // the final means that you will not change this variable
   Question(this.questionText);
 
   @override
   Widget build(BuildContext context) {
-    return Text(questionText);
+    return Container(
+      margin: EdgeInsets.all(20),
+      width: double.infinity,
+      child: Text(
+      questionText,
+      style: TextStyle(fontSize: 28),
+      textAlign: TextAlign.center,
+    )
+    ); 
   }
 }
