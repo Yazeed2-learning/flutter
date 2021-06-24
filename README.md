@@ -2,7 +2,7 @@
 
 [source](https://www.youtube.com/watch?v=x0uinJvhNxI&ab_channel=Academind)
 
-3 hours in
+4:07:00
 
 
 # firest_app
